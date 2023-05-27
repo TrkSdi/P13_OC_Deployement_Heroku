@@ -37,3 +37,9 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
+    - name: Build & Push Image
+      run: |
+        echo "${{ secrets.PASSWORD }}" | docker login -u "${{ secrets.USERNAME }}" --password-stdin
+        docker image build -t trksdi/oc_p13:v1 .
+        docker push trksdi/oc_p13:v1
+      

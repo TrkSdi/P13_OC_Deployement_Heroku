@@ -1,9 +1,0 @@
-stages:
-  - build
-services:
-  - docker: dind
-build:
-  stage: docker
-  image: docker:dind
-  script:
-    - docker build .

@@ -1,1 +1,1 @@
-web: gunicorn Python-OC-Lettings-FR.wsgi --log-file -
+web: gunicorn oc_lettings_site.wsgi --log-file -

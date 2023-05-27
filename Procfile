@@ -1,3 +1,1 @@
-web: gunicorn Python-OC-Lettings-FR.wsgi:application --log-file - --log-level debug
-python manage.py collectstatic --noinput
-manage.py migrate
+web: gunicorn Python-OC-Lettings-FR.wsgi --log-file -

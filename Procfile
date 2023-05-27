@@ -1,2 +1,3 @@
-release: python3 manage.py migrate
-web: gunicorn oc_lettings_site app:app
+web: gunicorn Python-OC-Lettings-FR.wsgi:application --log-file - --log-level debug
+python manage.py collectstatic --noinput
+manage.py migrate

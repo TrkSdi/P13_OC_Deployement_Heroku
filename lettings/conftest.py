@@ -10,9 +10,10 @@ def address():
                       'GA',
                       31525,
                       'USA'
-    )
+                      )
     yield address
-    
+
+
 @pytest.fixture
 def letting():
     letting = Letting("Joshua Tree Green Haus /w Hot Tub",

@@ -1,0 +1,1 @@
+web: gunicorn Python-OC-Lettings-FR.wsgi

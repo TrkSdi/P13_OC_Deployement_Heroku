@@ -1,4 +1,7 @@
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
 import os
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -13,7 +16,7 @@ SECRET_KEY = 'fp$9^593hsriajg$_%=5trot9g!1qa@ew(o-1#@=&4%=hp46(s'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['fast-gorge-63898.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'fast-gorge-63898.herokuapp.com']
 
 
 # Application definition
@@ -110,3 +113,19 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+sentry_sdk.init(
+    dsn="https://c63e009f2595422598f206918d1a807f@o4505262406107136.ingest.sentry.io/4505262507884544",
+    integrations=[
+        DjangoIntegration(),
+    ],
+
+    # Set traces_sample_rate to 1.0 to capture 100%
+    # of transactions for performance monitoring.
+    # We recommend adjusting this value in production.
+    traces_sample_rate=1.0,
+
+    # If you wish to associate users to errors (assuming you are using
+    # django.contrib.auth) you may enable sending PII data.
+    send_default_pii=True
+)

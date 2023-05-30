@@ -51,4 +51,10 @@ jobs:
       run: |
         git remote add heroku https://heroku:$HEROKU_TOKEN@git.heroku.com/$HEROKU_APP_NAME.git
         git push heroku HEAD:master -f
+    - name: Create Sentry release
+      uses: getsentry/action-release@v1
+      env:
+        SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+        SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+        SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
       

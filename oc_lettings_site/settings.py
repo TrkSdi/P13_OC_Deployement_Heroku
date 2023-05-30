@@ -115,7 +115,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 sentry_sdk.init(
-    dsn="https://c63e009f2595422598f206918d1a807f@o4505262406107136.ingest.sentry.io/4505262507884544",
+    dsn="https://13b82279b59d467b9ec402424937af4b@o4505262406107136.ingest.sentry.io/4505262680571904",
     integrations=[
         DjangoIntegration(),
     ],

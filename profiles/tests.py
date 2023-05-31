@@ -1,7 +1,5 @@
 from django.urls import reverse
 import pytest
-from django.contrib.auth.models import User
-from .models import Profile
 
 
 @pytest.mark.django_db
@@ -16,17 +14,10 @@ def test_profiles_index_content(client):
 
 
 @pytest.mark.django_db
-def test_profile_detail_content(client):
+def test_profile_detail_content(db, client, profiles_obj):
     url = reverse('profiles:profiles_id', kwargs={'username': 'HeadlinesGazer'})
-    user = User.objects.create(first_name="Jamie",
-                               last_name='Lal',
-                               email='jssssss33@acee9.live',
-                               username='HeadlinesGazer'
-                               )
-    Profile.objects.create(user=user, favorite_city='Buenos Aires')
     response = client.get(url)
     data = response.content.decode()
-    expected_data = '<title>HeadlinesGazer</title>'
 
     assert response.status_code == 200
-    assert expected_data in data
+    assert profiles_obj.user.username in data

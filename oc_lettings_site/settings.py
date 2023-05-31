@@ -16,7 +16,7 @@ SECRET_KEY = 'fp$9^593hsriajg$_%=5trot9g!1qa@ew(o-1#@=&4%=hp46(s'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'fast-gorge-63898.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'fast-gorge-63898.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -31,7 +31,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'lettings',
     'profiles',
+    'django.contrib.sites',
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -1,3 +1,4 @@
+from django.contrib.sites.models import Site
 from django.urls import reverse
 import pytest
 
@@ -18,12 +19,15 @@ def test_letting_index_content(client):
 
     assert exepected_data in data
 
-# @pytest.mark.django_db
-# def test_letting_detail_content(client, address, letting ):
-#     url = reverse('lettings:lettings_id', kwargs={'letting_id':1})
-#     response = client.get(url)
-#     data = response.content.decode()
-#     print("DATA", data)
-#     expected_data = letting
-#
-#     assert expected_data in letting
+@pytest.mark.django_db
+def test_letting_detail_content(client):
+    domain = "localhost:8000" #Site.objects.get_current().domain
+    print("Domain", domain)
+    url = reverse('lettings:lettings_id', kwargs={'letting_id':1})
+    url_absolute = f'{domain}{url}'
+    print("URL", url_absolute)
+    response = client.get(url)
+    data = response.content.decode()
+    print("DATA", data)
+    expected_data = "<title>Joshua Tree Green Haus /w Hot Tub</title>"
+    assert expected_data in data

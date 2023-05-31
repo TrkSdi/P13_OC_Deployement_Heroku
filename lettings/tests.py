@@ -1,3 +1,4 @@
+from .models import Letting, Address
 from django.contrib.sites.models import Site
 from django.urls import reverse
 import pytest
@@ -21,13 +22,15 @@ def test_letting_index_content(client):
 
 @pytest.mark.django_db
 def test_letting_detail_content(client):
-    domain = "localhost:8000" #Site.objects.get_current().domain
-    print("Domain", domain)
     url = reverse('lettings:lettings_id', kwargs={'letting_id':1})
-    url_absolute = f'{domain}{url}'
-    print("URL", url_absolute)
+    address = Address.objects.create(number=7217, 
+                                     street='Bedford Street',
+                                     city='Brunswick',
+                                     state='GA',
+                                     zip_code=31525,
+                                     country_iso_code='USA')
+    Letting.objects.create(title='Joshua Tree Green Haus /w Hot Tub', address=address)
     response = client.get(url)
     data = response.content.decode()
-    print("DATA", data)
-    expected_data = "<title>Joshua Tree Green Haus /w Hot Tub</title>"
+    expected_data = '<title>Joshua Tree Green Haus /w Hot Tub</title>'
     assert expected_data in data

@@ -101,9 +101,10 @@ IMPORTANT : Le déploiement est déclenché à chaque mise à jour de la branche
 
 ###### GitHub
 
-- Allez sur l'onglet `Actions` et créer un nouveau workflow
-
-
+- Allez sur `settings>secrets and variables>actions`
+- Mettre à jour `DOCKER_USERNAME` et `DOCKER_PASSWORD`avec votre username et mot de passe Docker
+- Mettre à jour `HEROKU_TOKEN`et `HEROKU_APP_NAME`/ Documentation [LIEN](https://github.com/marketplace/actions/deploy-to-heroku)
+- Mettre à jour `SENTRY_AUTH_TOKEN`, `SENTRY_ORG` et `SENTRY_PROJECT`/ Documentation [LIEN] (https://github.com/marketplace/actions/sentry-release)
 
 
 ### Windows

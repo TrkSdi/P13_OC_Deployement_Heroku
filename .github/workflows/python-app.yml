@@ -45,13 +45,14 @@ jobs:
         docker image build -t trksdi/oc_p13:v1 .
         docker push trksdi/oc_p13:v1
     - name: Deploy to Heroku
-      env:
-        HEROKU_TOKEN: ${{ secrets.HEROKU_TOKEN }}
-        HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
-      run: |
-        git remote add heroku https://heroku:$HEROKU_TOKEN@git.heroku.com/$HEROKU_APP_NAME.git
-        heroku config:set DISABLE_COLLECTSTATIC=1
-        git push heroku HEAD:master -f
+      uses: gonuit/heroku-docker-deploy@v1.3.3
+      with:
+        email: ${{ secrets.HEROKU_EMAIL }}
+        heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+        dockerfile_directory: ./
+        dockerfile_name: Dockerfile
+        docker_options: "--no-cache"
+        process_type: web
     - name: Create Sentry release
       uses: getsentry/action-release@v1
       env:

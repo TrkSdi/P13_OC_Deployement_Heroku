@@ -41,7 +41,7 @@ jobs:
         pytest
     - name: Build & Push Image
       run: |
-        echo "${{ secrets.PASSWORD }}" | docker login -u "${{ secrets.USERNAME }}" --password-stdin
+        echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin 
         docker image build -t trksdi/oc_p13:v1 .
         docker push trksdi/oc_p13:v1
     - name: Deploy to Heroku

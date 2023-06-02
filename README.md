@@ -92,7 +92,7 @@ La commande unique afin de récupérer l'image et la lancer sur Docker Desktop:
 sauvegarde sur la plateforme DockerHub
 - Si la construction et la sauvegrade l'image Docker sont réussies, il procède au déploiement sur 
 la platforme Heroku
-- Le déploiement est accessible sur ce lien : `https://fast-gorge-63898.herokuapp.com/`
+- Le déploiement est accessible sur ce lien : [LIEN](https://fast-gorge-63898.herokuapp.com/)
 - Après le déploiement, une veille erreur est mise en place avec l'outil Sentry
 
 IMPORTANT : Le déploiement est déclenché à chaque mise à jour de la branche `main`
@@ -101,7 +101,7 @@ IMPORTANT : Le déploiement est déclenché à chaque mise à jour de la branche
 
 ###### GitHub
 
-- Créer un compte et se connecter sur GitHub
+- Allez sur l'onglet `Actions` et créer un nouveau workflow
 
 
 

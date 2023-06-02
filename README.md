@@ -69,9 +69,40 @@ Dans le reste de la documentation sur le développement local, il est supposé q
 - Aller sur `http://localhost:8000/admin`
 - Connectez-vous avec l'utilisateur `admin`, mot de passe `Abc1234!`
 
+#### Docker 
+
+La commande unique afin de récupérer l'image et la lancer sur Docker Desktop:
+
+`docker pull trksdi/oc_p13:v1 && docker run -p 8000:8000 trksdi/oc_p13:v1`
+
+#### Deploiement
+
+##### Fonctionnement 
+
+- Le workflow CI/CD se fait à travers la plateforme GitHub Actions
+- Il procède au lancement des tests dans un premier temps. 
+- Si les tests passent avec succès, il procède à la construction d'une image Docker et la 
+sauvegarde sur la plateforme DockerHub
+- Si la construction et la sauvegrade l'image Docker sont réussies, il procède au déploiement sur 
+la platforme Heroku
+- Le déploiement est accessible sur ce lien : `https://fast-gorge-63898.herokuapp.com/`
+- Après le déploiement, une veille erreur est mise en place avec l'outil Sentry
+
+IMPORTANT : Le déploiement est déclenché à chaque mise à jour de la branche `main`
+
+##### Configuration requise
+
+- Accès au compte [GitHub](https://github.com/) (Workflow)
+- Accès au compte DockerHub (Image)
+- Accès au compte Heroku (Déploiement)
+- Accès au compte Sentry (Surveillance erreur)
+
+
+
 ### Windows
 
 Utilisation de PowerShell, comme ci-dessus sauf :
 
 - Pour activer l'environnement virtuel, `.\venv\Scripts\Activate.ps1` 
 - Remplacer `which <my-command>` par `(Get-Command <my-command>).Path`
+

@@ -46,11 +46,13 @@ jobs:
         docker push trksdi/oc_p13:v1
     - name: Deploy to Heroku
       env:
-        HEROKU_TOKEN: ${{ secrets.HEROKU_TOKEN }}
-        HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
-      run: |
-        git remote add heroku https://heroku:$HEROKU_TOKEN@git.heroku.com/$HEROKU_APP_NAME.git
-        git push heroku HEAD:master -f
+        email: ${{ secrets.HEROKU_EMAIL }}
+        heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+        heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
+        dockerfile_directory: ./
+        dockerfile_name: Dockerfile
+        options: "--no-cache"
+        process_type: web
     - name: Create Sentry release
       uses: getsentry/action-release@v1
       env:

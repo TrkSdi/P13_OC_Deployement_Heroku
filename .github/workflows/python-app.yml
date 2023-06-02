@@ -45,7 +45,8 @@ jobs:
         docker image build -t trksdi/oc_p13:v1 .
         docker push trksdi/oc_p13:v1
     - name: Deploy to Heroku
-      run:
+      uses: gonuit/heroku-docker-deploy@v1.3.3 # GitHub action name (leave it as it is).
+      with:
         email: ${{ secrets.HEROKU_EMAIL }}
         heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
         heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}

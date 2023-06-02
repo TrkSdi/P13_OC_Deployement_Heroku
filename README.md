@@ -90,8 +90,7 @@ La commande unique afin de récupérer l'image et la lancer sur Docker Desktop:
 - Il procède au lancement des tests dans un premier temps. 
 - Si les tests passent avec succès, il procède à la construction d'une image Docker et la 
 sauvegarde sur la plateforme DockerHub
-- Si la construction et la sauvegrade l'image Docker sont réussies, il procède au déploiement sur 
-la platforme Heroku
+- Si la construction et la sauvegrade l'image Docker sont réussies, il procède au déploiement sur la platforme Heroku
 - Le déploiement est accessible sur ce lien : [LIEN](https://fast-gorge-63898.herokuapp.com/)
 - Après le déploiement, une veille erreur est mise en place avec l'outil Sentry
 

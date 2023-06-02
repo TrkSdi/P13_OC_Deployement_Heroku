@@ -77,6 +77,13 @@ La commande unique afin de récupérer l'image et la lancer sur Docker Desktop:
 
 #### Deploiement
 
+##### Configuration requise
+
+- Accès au compte [GitHub](https://github.com/) (Workflow)
+- Accès au compte [DockerHub](https://hub.docker.com/) (Image)
+- Accès au compte [Heroku](https://id.heroku.com/) (Déploiement)
+- Accès au compte [Sentry](https://sentry.io/) (Surveillance erreur)
+
 ##### Fonctionnement 
 
 - Le workflow CI/CD se fait à travers la plateforme GitHub Actions
@@ -90,12 +97,12 @@ la platforme Heroku
 
 IMPORTANT : Le déploiement est déclenché à chaque mise à jour de la branche `main`
 
-##### Configuration requise
+##### Etapes de mise en place
 
-- Accès au compte [GitHub](https://github.com/) (Workflow)
-- Accès au compte DockerHub (Image)
-- Accès au compte Heroku (Déploiement)
-- Accès au compte Sentry (Surveillance erreur)
+###### GitHub
+
+- Créer un compte et se connecter sur GitHub
+
 
 
 

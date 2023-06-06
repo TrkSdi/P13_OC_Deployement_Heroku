@@ -47,6 +47,10 @@ Dans le reste de la documentation sur le développement local, il est supposé q
 - `source venv/bin/activate`
 - `flake8`
 
+NOTE : Pour un rapport détaillé en html utiliser la commande : 
+
+- `flake8 --format=html --htmldir=flake-report`
+
 #### Tests unitaires
 
 - `cd /path/to/Python-OC-Lettings-FR`
